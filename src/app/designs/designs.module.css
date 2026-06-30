@@ -1,0 +1,202 @@
+.designsPage {
+  padding-top: 120px;
+  padding-bottom: var(--space-xl);
+  min-height: 100vh;
+}
+
+.header {
+  padding-bottom: 0;
+}
+
+.header h1 {
+  margin-bottom: var(--space-xs);
+}
+
+.header p {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  max-width: 600px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--space-md);
+}
+
+.designCard {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  padding: 0;
+  background: none;
+  text-align: left;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: var(--bg-secondary);
+  pointer-events: none;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--bg-tertiary), #1a1a1a);
+  transition: transform var(--transition-slow);
+}
+
+.designImage {
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--space-md);
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  transition: all var(--transition-normal);
+  pointer-events: none;
+}
+
+/* Hover effects only on devices with a real pointer (desktop).
+   On touch devices these are skipped so the first tap fires the click
+   instead of just triggering a hover state. */
+@media (hover: hover) {
+  .overlay {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .designCard:hover .designImage {
+    transform: scale(1.05);
+  }
+
+  .designCard:hover .placeholder {
+    transform: scale(1.05);
+  }
+
+  .designCard:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlay h3 {
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.overlay p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-md);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.lightboxClose {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+  z-index: 10001;
+}
+
+.lightboxClose:hover {
+  transform: scale(1.1);
+  color: #fff;
+}
+
+.lightboxContent {
+  width: 100%;
+  max-width: 1000px;
+  height: 80%;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  cursor: default;
+}
+
+.lightboxImageWrapper {
+  flex: 1 1 0;
+  position: relative;
+  width: 100%;
+  min-height: 0;
+}
+
+.lightboxImage {
+  object-fit: contain;
+  padding: var(--space-md);
+}
+
+.lightboxPlaceholder {
+  flex-grow: 1;
+  background: linear-gradient(135deg, var(--bg-tertiary), #1a1a1a);
+  width: 100%;
+}
+
+.lightboxInfo {
+  padding: var(--space-md);
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--glass-border);
+}
+
+.lightboxTitle {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.lightboxCategory {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
