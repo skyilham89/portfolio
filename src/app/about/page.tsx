@@ -1,5 +1,6 @@
 import styles from "./about.module.css";
 import Image from "next/image";
+import profileImg from "@/imports/profile.jpg";
 
 export default function About() {
   const skills = [
@@ -14,7 +15,7 @@ export default function About() {
       <div className={`container ${styles.grid}`}>
         <div className={`fade-in ${styles.imageCol}`}>
            <Image 
-             src="/profile.jpg" 
+             src={profileImg}
              alt="Profile picture of Muhamad Ilham"
              width={600}
              height={800}

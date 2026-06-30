@@ -142,9 +142,12 @@ export default function Gallery({ images, title }: Props) {
             className={styles.lightboxContent}
             onClick={(e) => e.stopPropagation()}
           >
-            <img
-              src={typeof images[lightboxIndex] === "string" ? images[lightboxIndex] : images[lightboxIndex].src}
+            <Image
+              src={images[lightboxIndex]}
               alt={`${title} image ${lightboxIndex + 1}`}
+              width={1400}
+              height={900}
+              sizes="90vw"
               className={styles.lightboxImage}
               draggable={false}
             />

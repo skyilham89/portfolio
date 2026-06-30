@@ -2,26 +2,35 @@
 
 import { useState, useEffect } from "react";
 import styles from "./designs.module.css";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+
+import dribbble1 from "@/imports/designs/dribbble-1.png";
+import dribbble2 from "@/imports/designs/dribbble-2.png";
+import dribbble3 from "@/imports/designs/dribbble-3.png";
+import dribbble4 from "@/imports/designs/dribbble-4.png";
+import dribbble5 from "@/imports/designs/dribbble-5.png";
+import dribbble6 from "@/imports/designs/dribbble-6.png";
+import globalPulseFull from "@/imports/designs/global-pulse-full.png";
+import starpropertyFull from "@/imports/designs/starproperty-full.png";
 
 type Design = {
   id: number;
   title: string;
   category: string;
-  image?: string;
-  fullImage?: string;
+  image?: StaticImageData;
+  fullImage?: StaticImageData;
 };
 
 export default function Designs() {
   const [selectedDesign, setSelectedDesign] = useState<Design | null>(null);
 
   const designs: Design[] = [
-    { id: 1, title: "Rewards Landing Page", category: "Web UI", image: "/designs/dribbble-1.png" },
-    { id: 2, title: "Reward Theme & Dark Mode", category: "Mobile UI", image: "/designs/dribbble-2.png" },
-    { id: 3, title: "iOS 26 Liquid Glass", category: "App Design", image: "/designs/dribbble-3.png" },
-    { id: 4, title: "Appreciation Page", category: "Web UI", image: "/designs/dribbble-4.png", fullImage: "/designs/global-pulse-full.png" },
-    { id: 5, title: "Property Classified", category: "Web Design", image: "/designs/dribbble-5.png", fullImage: "/designs/starproperty-full.png" },
-    { id: 6, title: "Apple Watch Widget", category: "Apple Watch UI", image: "/designs/dribbble-6.png" },
+    { id: 1, title: "Rewards Landing Page", category: "Web UI", image: dribbble1 },
+    { id: 2, title: "Reward Theme & Dark Mode", category: "Mobile UI", image: dribbble2 },
+    { id: 3, title: "iOS 26 Liquid Glass", category: "App Design", image: dribbble3 },
+    { id: 4, title: "Appreciation Page", category: "Web UI", image: dribbble4, fullImage: globalPulseFull },
+    { id: 5, title: "Property Classified", category: "Web Design", image: dribbble5, fullImage: starpropertyFull },
+    { id: 6, title: "Apple Watch Widget", category: "Apple Watch UI", image: dribbble6 },
   ];
 
   // Close lightbox on Escape key
