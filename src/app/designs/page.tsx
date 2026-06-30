@@ -12,6 +12,7 @@ import dribbble5 from "@/imports/designs/dribbble-5.png";
 import dribbble6 from "@/imports/designs/dribbble-6.png";
 import globalPulseFull from "@/imports/designs/global-pulse-full.png";
 import starpropertyFull from "@/imports/designs/starproperty-full.png";
+import widgetWatch from "@/imports/widget-watch.png";
 
 type Design = {
   id: number;
@@ -30,7 +31,7 @@ export default function Designs() {
     { id: 3, title: "iOS 26 Liquid Glass", category: "App Design", image: dribbble3 },
     { id: 4, title: "Appreciation Page", category: "Web UI", image: dribbble4, fullImage: globalPulseFull },
     { id: 5, title: "Property Classified", category: "Web Design", image: dribbble5, fullImage: starpropertyFull },
-    { id: 6, title: "Apple Watch Widget", category: "Apple Watch UI", image: dribbble6 },
+    { id: 6, title: "Apple Watch Widget", category: "Apple Watch UI", image: dribbble6, fullImage: widgetWatch },
   ];
 
   // Close lightbox on Escape key
